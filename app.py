@@ -11,7 +11,7 @@ import plotly.express as px
 # Config
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 TRAIN_DIR = "fish_dataset/train"   # used only to recover class names/order
-MODEL_DIR = "models"               # folder containing model .pkl files
+MODEL_DIR = "Models"               # folder containing model .pkl files
 
 # Utilities
 @st.cache_resource(show_spinner=False)
@@ -231,3 +231,4 @@ else:
     st.info("Upload an image to get predictions from all models.")
 
 st.caption(f"Device: **{DEVICE}**")
+
