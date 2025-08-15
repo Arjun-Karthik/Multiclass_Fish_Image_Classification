@@ -73,7 +73,7 @@ def build_pretrained(model_func, num_classes):
 
     return model.to(DEVICE)
 
-# Dynamically load models from folder
+# Dynamically load models from folder (PyTorch 2.6 fix)
 @st.cache_resource
 def load_models_from_folder(model_dir, num_classes):
     loaded_models = {}
@@ -83,11 +83,16 @@ def load_models_from_folder(model_dir, num_classes):
         st.warning(f"Model directory `{model_dir}` does not exist.")
         return loaded_models, missing_models
 
+    def safe_load(path):
+        """Helper to load models with PyTorch 2.6 compatibility."""
+        return torch.load(path, map_location=DEVICE, weights_only=False)
+
     for file in os.listdir(model_dir):
         if file.endswith(".pkl"):
             model_name = file.replace("_best.pkl", "")
             path = os.path.join(model_dir, file)
             try:
+                # Build correct architecture first
                 if model_name.lower() == "resnet50":
                     model = build_pretrained(models.resnet50, num_classes)
                 elif model_name.lower() == "vgg16":
@@ -102,7 +107,8 @@ def load_models_from_folder(model_dir, num_classes):
                 else:
                     model = SimpleCNN(num_classes)
 
-                state = torch.load(path, map_location=DEVICE)
+                # Load state dict safely
+                state = safe_load(path)
                 model.load_state_dict(state)
                 model.to(DEVICE)
                 model.eval()
@@ -231,3 +237,4 @@ else:
     st.info("Upload an image to get predictions from all models.")
 
 st.caption(f"Device: **{DEVICE}**")
+
