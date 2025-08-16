@@ -77,17 +77,17 @@ Install all with:
 
 ## 📸 Screenshots
 
+### Dashboard
+
+<img src="Screenshots/main.png" width="800"/>
+
 ### 📊 Model Performance
 
-<img src="Screenshots/Model Metrics.png" width="800"/>
-
-### 📊 Model Performance
-
-<img src="Screenshots/PCA Visualization.png" width="800"/>
+<img src="Screenshots/Confidence Score.png" width="800"/>
 
 ## 🎥 Demo Video
 
-   <a href="https://www.linkedin.com/posts/arjun-t-a51383200_nutriclass-food-classification-using-nutritional-activity-7358768128262066178-qE4L?utm_source=share&utm_medium=member_desktop&rcm=ACoAADNQBh0BQsEphYCjQb01l17Z8-pUyINZuxs">NutriClass: Food Classification Using Nutritional Data Demo Video</a>
+   <a href="https://www.linkedin.com/posts/arjun-t-a51383200_multiclass-fish-image-classification-trained-activity-7362341996092420097-ECQb?utm_source=share&utm_medium=member_desktop&rcm=ACoAADNQBh0BQsEphYCjQb01l17Z8-pUyINZuxs">Multiclass Fish Image Classification Demo Video</a>
 
 ## 📃 License
 
