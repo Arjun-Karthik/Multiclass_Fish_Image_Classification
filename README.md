@@ -77,7 +77,7 @@ Install all with:
 
 ## 📸 Screenshots
 
-### Dashboard
+### 🐠 Dashboard
 
 <img src="Screenshots/main.png" width="800"/>
 
